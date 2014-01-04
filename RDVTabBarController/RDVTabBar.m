@@ -37,7 +37,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _backgroundView = [[UIView alloc] initWithFrame:frame];
-        [_backgroundView setBackgroundColor:[UIColor lightGrayColor]];
+        [_backgroundView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_backgroundView];
     }
     return self;

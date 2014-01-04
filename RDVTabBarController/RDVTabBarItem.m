@@ -47,6 +47,7 @@
         _title = @"";
         _titlePositionAdjustment = UIOffsetZero;
         
+        self.backgroundColor = [UIColor clearColor];
         if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
             _unselectedTitleAttributes = @{
                                            NSFontAttributeName: [UIFont systemFontOfSize:12],
@@ -102,6 +103,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     
+    CGContextClearRect(context, rect);
     [backgroundImage drawInRect:self.bounds];
     
     // Draw image and title
