@@ -68,6 +68,11 @@
  */
 - (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
+/**
+ * Changes the visibility of the tab bar.
+ */
+- (void)setTabBarOverlapped:(BOOL)overlapped animated:(BOOL)animated;
+
 @end
 
 @protocol RDVTabBarControllerDelegate <NSObject>

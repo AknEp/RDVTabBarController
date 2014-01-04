@@ -226,6 +226,17 @@
     [self setTabBarHidden:_tabBarHidden overlapped:overlapped animated:NO];
 }
 
+- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated
+{
+    [self setTabBarHidden:hidden overlapped:_tabBarOverlapped animated:animated];
+}
+
+- (void)setTabBarOverlapped:(BOOL)overlapped animated:(BOOL)animated
+{
+    [self setTabBarHidden:_tabBarHidden overlapped:overlapped animated:animated];
+}
+
+
 #pragma mark - RDVTabBarDelegate
 
 - (BOOL)tabBar:(RDVTabBar *)tabBar shouldSelectItemAtIndex:(NSInteger)index {
