@@ -61,7 +61,9 @@
     
     if (![self isTabBarHidden]) {
         tabBarStartingY = viewSize.height - tabBarHeight;
-        contentViewHeight = viewSize.height - [[self tabBar] minimumContentHeight];
+        if(![self isTabBarOverlapped]){
+            contentViewHeight = viewSize.height - [[self tabBar] minimumContentHeight];
+        }
     }
     
     [[self tabBar] setFrame:CGRectMake(0, tabBarStartingY, viewSize.width, tabBarHeight)];
@@ -167,12 +169,13 @@
     return _contentView;
 }
 
-- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated {
-    if (_tabBarHidden == hidden) {
+- (void)setTabBarHidden:(BOOL)hidden overlapped:(BOOL)overlapped animated:(BOOL)animated {
+    if (_tabBarHidden == hidden && _tabBarOverlapped == overlapped) {
         return;
     }
     
     _tabBarHidden = hidden;
+    _tabBarOverlapped = overlapped;
     
     void (^block)() = ^{
         CGSize viewSize = self.view.frame.size;
@@ -190,7 +193,9 @@
         
         if (!hidden) {
             tabBarStartingY = viewSize.height - CGRectGetHeight(tabBarFrame);
-            contentViewHeight = viewSize.height - [[self tabBar] minimumContentHeight];
+            if(!overlapped){
+                contentViewHeight = viewSize.height - [[self tabBar] minimumContentHeight];
+            }
         }
         
         [[self tabBar] setFrame:CGRectMake(CGRectGetMinX(tabBarFrame),
@@ -214,7 +219,11 @@
 }
 
 - (void)setTabBarHidden:(BOOL)hidden {
-    [self setTabBarHidden:hidden animated:NO];
+    [self setTabBarHidden:hidden overlapped:_tabBarOverlapped animated:NO];
+}
+
+- (void)setTabBarOverlapped:(BOOL)overlapped {
+    [self setTabBarHidden:_tabBarHidden overlapped:overlapped animated:NO];
 }
 
 #pragma mark - RDVTabBarDelegate

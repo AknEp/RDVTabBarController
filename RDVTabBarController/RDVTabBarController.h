@@ -59,6 +59,11 @@
 @property (nonatomic, getter=isTabBarHidden) BOOL tabBarHidden;
 
 /**
+ * A Boolean value that determines whether the tab bar is overlapped.
+ */
+@property (nonatomic, getter=isTabBarOverlapped) BOOL tabBarOverlapped;
+
+/**
  * Changes the visibility of the tab bar.
  */
 - (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
