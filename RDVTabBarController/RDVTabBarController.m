@@ -120,6 +120,7 @@
     [[[self selectedViewController] view] setFrame:[[self contentView] bounds]];
     [[self contentView] addSubview:[[self selectedViewController] view]];
     [[self selectedViewController] didMoveToParentViewController:self];
+    self.navigationItem.title = [[self selectedViewController] title];
 }
 
 - (void)setViewControllers:(NSArray *)viewControllers {
