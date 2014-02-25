@@ -41,7 +41,7 @@
     
     UIView *view = [[UIView alloc] initWithFrame:applicationFrame];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-    [view setBackgroundColor:[UIColor whiteColor]];
+    [view setBackgroundColor:[UIColor clearColor]];
     self.view = view;
     
     [view addSubview:[self contentView]];
@@ -163,7 +163,7 @@
 - (UIView *)contentView {
     if (!_contentView) {
         _contentView = [[UIView alloc] init];
-        [_contentView setBackgroundColor:[UIColor whiteColor]];
+        [_contentView setBackgroundColor:[UIColor clearColor]];
         [_contentView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|
                                           UIViewAutoresizingFlexibleHeight];
     }
